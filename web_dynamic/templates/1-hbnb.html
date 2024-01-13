@@ -43,12 +43,12 @@
 	  <h4>&nbsp;</h4>
 	  <div class="popover">
 	    <ul>
-	      { % for amenity in amenities % }
+	      {% for amenity in amenities %}
 	      <li>
-            <input type="checkbox" style="margin-left: 10px;" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">
+			<input type="checkbox" style="margin-left: 10px;" data-id="{{ amenity[id] }}" data-name="{{ amenity[name] }}">
             {{ amenity.name }}
           </li>
-	      { % endfor % }
+	      {% endfor %}
 	    </ul>
 	  </div>
 	</div>
