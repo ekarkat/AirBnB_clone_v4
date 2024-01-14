@@ -68,7 +68,7 @@ $(document).ready(function () {
 			success: function(response) {
 				$('.places').empty()
 				for (let place of response) {
-					console.log(place);
+					// console.log(place);
 					let article = "<article><div class='title_box'><h2>" + place['name'] +
 					"</h2><div class='price_by_night'>" + "$" + place['price_by_night'] +
 					"</div></div><div class='information'><div class='max_guest'>" + place['max_guest'] +

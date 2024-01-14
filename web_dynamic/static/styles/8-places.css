@@ -1,10 +1,7 @@
 .places {
-    column-count: 2;
-    columns: 30em;
-    justify-content: center;
-    padding: 0 20px;
-    margin-top: 1%;
-    margin-bottom: 8%;
+	display: flex;
+	flex-wrap: wrap;
+	/* justify-content: space-evenly; */
 }
 @media only screen and (max-width: 920px)
 {
@@ -31,6 +28,7 @@
     margin: 20px;
     border: 1px solid #FF5A5F;
     border-radius: 4px;
+	align-self: stretch;
 }
 .places h2 {
     font-size: 30px;
@@ -97,9 +95,53 @@
 }
 
 .user {
-  margin-bottom: 1.5%;
+  margin-bottom: 2.5%;
 }
 
-div.description {
-	height: 100%;
+ /* control review lists */
+ 
+ .places div.reviews ul{
+	list-style: none;
+	padding: 0;
+	text-align: left;
+}
+
+.places div.reviews ul h3{
+	font-size: 14px;
+	margin: 10px 0 5px 0;
+}
+.places div.reviews ul p{
+	font-size: 12px;
+	margin: 5px 0 12px 0;
+}
+
+.places div.reviews{
+	margin: 19px 0 0px 0;
+}
+
+.places .reviews {
+	text-align: left;
+}
+
+.places .reviews h2 {
+	text-align: left;
+	padding-bottom: 15px;
+	border-bottom: solid 1px #cccccc ;
+	font-size: 20px;
+}
+
+.places .reviews h2:hover {
+	cursor: pointer;
+}
+
+.places .reviews ul{
+	display: none;
+}
+
+/* .places .reviews h2:hover + div ul {
+	display: block;
+} */
+
+.reviews:hover ul {
+	display: block;
 }
