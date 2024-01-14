@@ -99,3 +99,7 @@
 .user {
   margin-bottom: 1.5%;
 }
+
+div.description {
+	height: 100%;
+}

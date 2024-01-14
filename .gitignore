@@ -1,1 +1,3 @@
 __pyc*
+__pycache__
+app.py

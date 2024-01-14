@@ -22,9 +22,12 @@ $(document).ready(function () {
 
     
     // make the request fromm the http://0.0.0.0:5001/api/v1/status/
-    $.get("http://0.0.0.0:5001/api/v1/status/", function (data) {
+    $.get("http://localhost:5001/api/v1/status/", function (data) {
         if (data.status === 'OK') {
+			console.log(data.status);
             $("#api_status").addClass("available");
+			// $("#api_status").css("background-color", "#ff545f");
+
         } else {
             $("#api_status").removeClass("available");
         }

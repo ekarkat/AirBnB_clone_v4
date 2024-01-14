@@ -10,21 +10,6 @@
     <link rel="icon" href="../static/images/icon.png" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<script type="text/javascript" src="../static/scripts/2-hbnb.js?{{ cache_id }}"></script>
-    <style>
-        header {
-            position: relative;
-        }
-        #api_status {
-            background-color: #cccccc;
-            top: 50%;
-            right: 30%;
-            transform: translateY(-35%);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-        }
-    </style>
-
     <title>HBnB</title>
   </head>
   <body>
@@ -59,7 +44,7 @@
 	    <ul>
 	      {% for amenity in amenities %}
 	      <li>
-			<input type="checkbox" style="margin-left: 10px;" data-id="{{ amenity[id] }}" data-name="{{ amenity[name] }}">
+			<input type="checkbox" style="margin-left: 10px;" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">
             {{ amenity.name }}
           </li>
 	      {% endfor %}
