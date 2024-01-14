@@ -23,7 +23,7 @@ $(document).ready(function () {
 
 
     // make the request fromm the http://0.0.0.0:5001/api/v1/status/
-    $.get("http://localhost:5001/api/v1/status/", function (data) {
+    $.get("http://0.0.0.0:5001/api/v1/status/", function (data) {
         if (data.status === 'OK') {
 			// console.log(data.status);
             $("#api_status").addClass("available");
@@ -34,7 +34,7 @@ $(document).ready(function () {
         }
     });
 	$.post({
-		url: "http://localhost:5001/api/v1/places_search/",
+		url: "http://0.0.0.0:5001/api/v1/places_search/",
 		data: JSON.stringify({}), // Replace yourData with the actual data you want to send
 		contentType: "application/json", // Set the content type to JSON
 		dataType: "json",
@@ -61,7 +61,7 @@ $(document).ready(function () {
 		}
 		console.log(amenitiesList);
 		$.post({
-			url: "http://localhost:5001/api/v1/places_search/",
+			url: "http://0.0.0.0:5001/api/v1/places_search/",
 			data: JSON.stringify({"states":[], "cities": [],"amenities":amenitiesList}), // Replace yourData with the actual data you want to send
 			contentType: "application/json", // Set the content type to JSON
 			dataType: "json",

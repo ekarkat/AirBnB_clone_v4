@@ -170,7 +170,6 @@ $(document).ready(function () {
 			cityList.push(city)
 		}
 
-
 		$.post({
 			url: "http://0.0.0.0:5001/api/v1/places_search/",
 			data: JSON.stringify({"states":stateList, "cities":cityList,"amenities":amenitiesList}), // Replace yourData with the actual data you want to send
@@ -179,6 +178,10 @@ $(document).ready(function () {
 			success: async function(response) {
 				$('.places').empty()
 				for (let place of response) {
+					let reviewsListInfo = await get_reviews_info(place['id']);
+	
+					// console.log(reviewsList)
+					// console.log("********************************")
 					let name = await get_user_name(place['user_id']);
 					let article = "<article><div class='title_box'><h2>" + place['name'] +
 					"</h2><div class='price_by_night'>" + "$" + place['price_by_night'] +
@@ -186,8 +189,16 @@ $(document).ready(function () {
 					"</div><div class='number_rooms'>" + place['number_rooms'] +
 					"</div><div class='number_bathrooms'>" + place['number_bathrooms'] +
 					"</div></div>" + "<div class='user'> <b>Owner: </b>" + name + "</div>" + "<div class='description'>" + place['description'] + "</div>"
-					+ "<div class='reviews'><h2>Reviews</h2> <ul><li><h3> From Bob Dylan the 28th January 2017 </h3><p> Runshi is an epic host. Nothing more I can say, 5 stars! </p></li><li><h3> From Connor the 4th January 2017 </h3><p> Highly recommend! </p></li></ul> </div></article>";
+					+ "<div class='reviews'><h2>Reviews</h2></div></article>";
 					$('section.places').append(article);
+					for (let rev of reviewsListInfo) {
+						let username = await get_reviews_username(rev['user_id'])
+						let date = [year, month, day] = rev['time'].split("T")[0].split("-");
+						let formattedDate = `${year}-${month}-${day}`;
+						let reviews = "<ul><li><h3>From: " + username + " on the " +formattedDate + "</h3><p>" + rev['text'] + "</p></li></ul>";
+						// Find the '.reviews' element within the current article and append the reviews
+						$('section.places article:last-child').find('.reviews').append(reviews);
+					}
 				}
 			},
 			error: function(error) {
